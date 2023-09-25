@@ -11,7 +11,7 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Todo implements Serializable {
-	private static final long serialVersionUUID = 1L;
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
