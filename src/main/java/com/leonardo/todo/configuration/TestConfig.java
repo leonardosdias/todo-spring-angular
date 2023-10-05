@@ -1,5 +1,7 @@
 package com.leonardo.todo.configuration;
 
+import java.text.ParseException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +16,7 @@ public class TestConfig {
 	private DBService dbService;
 
 	@Bean
-	 boolean instanciar() {
+	 boolean instanciar() throws ParseException {
 		this.dbService.instanciarBaseDeDados();
 		return true;
 	}

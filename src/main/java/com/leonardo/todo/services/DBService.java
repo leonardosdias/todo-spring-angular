@@ -1,5 +1,7 @@
 package com.leonardo.todo.services;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
@@ -15,12 +17,10 @@ public class DBService {
 	@Autowired
 	private TodoRepository todoRepository;
 
-	public void instanciarBaseDeDados() {
+	public void instanciarBaseDeDados() throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-
-		Todo t1 = new Todo(null, "Estudar", "Estudar Sprint Boot", LocalDateTime.parse("25/03/2022 10:40", formatter),
-				false);
+		Todo t1 = new Todo(null, "Estudar", "Estudar Sprint Boot", sdf.parse("25/03/2022 10:40"), false);
 
 		todoRepository.saveAll(Arrays.asList(t1));
 
